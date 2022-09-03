@@ -3,17 +3,19 @@ import { makeStyles } from '@material-ui/styles';
 import ButtonRound from 'Components/Buttons/ButtonRound';
 import { products } from 'Api/ClothingDatabase';
 
-const ProductInListQuantity = ({ idpr, carts }) => {
-    const [quantity, setQuantity] = useState(1);
-    const [data, setData] = useState(carts);
+const ProductInListQuantity = ({ idpr, carts, setCart, item }) => {
+    const [quantity, setQuantity] = useState(item.qty);
     const prevClick = (quantity, id) => {
         setQuantity(quantity === 1 ? 1 : quantity - 1);
+        setCart(carts.map((item) => (item.id === id ? { ...item, qty: parseInt(quantity) === 1 ? 1 : parseInt(quantity) === 1 - 1 } : item)))
 
-        setData([...data, data.find((item) => (item.id === id ? (item.qty = quantity) : item))]);
+
+        // setCart([...carts, carts.find((item) => (item.id === id ? (item.qty = quantity) : item))]);
     };
     const nextClick = (quantity, id) => {
         setQuantity(quantity + 1);
-        setData([...data, data.find((item) => (item.id === id ? (item.qty = quantity) : item))]);
+        setCart(carts.map((item) => (item.id === id ? { ...item, qty: parseInt(quantity) + 1 } : item)))
+
     };
     const classes = useStyles();
     return (
@@ -34,7 +36,7 @@ const ProductInListQuantity = ({ idpr, carts }) => {
                     background="transparent"
                     onClick={() => nextClick(quantity, idpr)}
                 />
-                <span>10$</span>
+                <span>{parseFloat(item.price * quantity).toFixed(2)}$</span>
             </div>
         </div>
     );

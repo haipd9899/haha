@@ -7,7 +7,7 @@ import CartCheckout from './CartCheckout';
 import UseStore from 'Store/StoreContext';
 
 const Cart = () => {
-    let { cart, Delete, quantity, prevClick, nextClick } = UseStore();
+    let { cart, Delete, quantity, prevClick, nextClick, setCart } = UseStore();
     console.log('datadsdf:', cart);
     return (
         <Container fluid>
@@ -31,6 +31,7 @@ const Cart = () => {
                                             nextClick={nextClick}
                                             idpr={item.id}
                                             carts={cart}
+                                            setCart={setCart}
                                         />
                                     </li>
                                 );

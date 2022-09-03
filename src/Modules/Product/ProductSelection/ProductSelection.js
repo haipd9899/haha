@@ -13,10 +13,16 @@ const Product = (props) => {
     const { cart, setCart } = UseStore();
 
     const addToCart = (curr) => {
-        console.log('curr:', curr);
-        setCart([curr, ...cart]);
-        // localStorage.setItem('cart', cart)
-        // console.log(localStorage.getItem('cart'))
+        console.log("cartsss:", cart);
+        console.log("curr:", curr)
+        const productExit = cart.find((item) => item.id === curr.id)
+        if (productExit) {
+            setCart(cart.map((item) => (item.id === curr.id ? { ...productExit, qty: productExit.qty + 1 } : item)))
+        } else {
+            setCart([...cart, { ...curr, qty: 1 }])
+        }
+
+
     };
 
     // console.log(localStorage.getItem('cart'))
