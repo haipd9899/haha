@@ -11,10 +11,10 @@ const HomePageBanner = () => {
             <img src={`${process.env.PUBLIC_URL}/images/homepage/banner.png`} alt="" />
             <div
                 className={clsx(classes.moreButton, {
-                    'd-flex align-items-center flex-column': true,
+                    'd-flex align-items-center flex-column bg-secondary': true,
                 })}
             >
-                <h1 className="mb-3">Up to 50% Off on Women's clothing</h1>
+                <h1 className="mb-3">Giảm tới 20% vào ngày 2 tháng 9</h1>
                 <ButtonSemiRound address={`${Url.HOME}/Giay_nam`} text="Xem thêm" />
             </div>
         </div>
@@ -55,6 +55,9 @@ const useStyles = makeStyles((theme) => ({
         top: '50%',
         width: 'fit-content',
         transform: 'translate(-50%,-50%)',
+        opacity: 0.8,
+        padding: '10px 20px',
+        borderRadius: '10px',
     },
 }));
 

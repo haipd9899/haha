@@ -5,7 +5,7 @@ const FooterCopyright = () => {
     const classes = useStyles();
     return (
         <div className="justify-content-center d-flex w-100 ">
-            <p className={classes.copyright}>Copyright©2021 All Rights Reserved</p>
+            <p className={classes.copyright}>DaoVui - Chuyên giày chính hãng</p>
         </div>
     );
 };

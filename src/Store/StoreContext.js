@@ -23,7 +23,7 @@ export const StoreContextProvider = ({ children }) => {
         cart.length = 0;
         setCart(carts);
     };
-    console.log('cart:', cart);
+
     return (
         <StoreContext.Provider
             value={{

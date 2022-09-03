@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import clsx from 'clsx';
 import Row from 'react-bootstrap/Row';
@@ -10,8 +10,7 @@ import ProductInListProductImage from './ProductInListProductImage';
 
 const ProductInList = (props) => {
     const classes = useStyles();
-    const { items } = props;
-    console.log('item123:', items);
+    const { items, quantity, prevClick, nextClick, idpr, carts } = props;
     return (
         <>
             {
@@ -30,7 +29,14 @@ const ProductInList = (props) => {
                             <ProductInListDelete id={items.id} Delete={props.Delete} />
                         </Col>
                         <Col xs={3} sm={2}>
-                            <ProductInListQuantity />
+                            <ProductInListQuantity
+                                id={items.id}
+                                quantity={quantity}
+                                prevClick={prevClick}
+                                nextClick={nextClick}
+                                idpr={idpr}
+                                carts={carts}
+                            />
                         </Col>
                     </Row>
                 </div>

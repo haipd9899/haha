@@ -7,8 +7,8 @@ import CartCheckout from './CartCheckout';
 import UseStore from 'Store/StoreContext';
 
 const Cart = () => {
-    let { cart, Delete } = UseStore();
-    console.log('cart:', cart);
+    let { cart, Delete, quantity, prevClick, nextClick } = UseStore();
+    console.log('datadsdf:', cart);
     return (
         <Container fluid>
             <Row className="mt-3 ">
@@ -23,17 +23,22 @@ const Cart = () => {
                             cart.map((item, index) => {
                                 return (
                                     <li class="list-group-item p-0 mb-3 border-0 ">
-                                        <ProductInList items={item} Delete={Delete} />
+                                        <ProductInList
+                                            items={item}
+                                            Delete={Delete}
+                                            quantity={quantity}
+                                            prevClick={prevClick}
+                                            nextClick={nextClick}
+                                            idpr={item.id}
+                                            carts={cart}
+                                        />
                                     </li>
                                 );
                             })}
-                        {/* <li class="list-group-item p-0 mb-3 border-0 "><ProductInList /></li>
-            <li class="list-group-item p-0 mb-3 border-0 "><ProductInList /></li>
-            <li class="list-group-item p-0 mb-3 border-0 "><ProductInList /></li> */}
                     </ul>
                 </Col>
                 <Col className="mb-3" xs={12} md={4}>
-                    <CartCheckout />
+                    <CartCheckout items={cart} />
                 </Col>
             </Row>
         </Container>

@@ -5,7 +5,10 @@ import ButtonBlock from 'Components/Buttons/ButtonBlock';
 import { Link } from 'react-router-dom';
 import Url from 'Paths';
 
-const CartCheckout = () => {
+const CartCheckout = ({ items }) => {
+    console.log('haha:', items);
+    let Subtotal = items.reduce((prev, price) => prev + price.price, 0);
+
     const classes = useStyles();
     return (
         <div
@@ -16,15 +19,15 @@ const CartCheckout = () => {
             <h5>Checkout Summary</h5>
             <div className="d-flex mt-3">
                 <p>Subtotal:</p>
-                <p className="ml-auto">150.88$</p>
+                <p className="ml-auto">{Subtotal}$</p>
             </div>
             <div className="d-flex ">
                 <p>Shipping:</p>
-                <p className="ml-auto">15.88$</p>
+                <p className="ml-auto">1.5$</p>
             </div>
             <div className="d-flex mt-4">
                 <h6>Total:</h6>
-                <h6 className="ml-auto">15.88$</h6>
+                <h6 className="ml-auto">{Subtotal + 1.5}$</h6>
             </div>
             <div className="mt-3">
                 <ButtonBlock as={Link} to={Url.Checkout} text="Proceed to checkout" />

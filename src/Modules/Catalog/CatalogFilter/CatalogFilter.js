@@ -22,13 +22,12 @@ const CatalogFilter = () => {
 };
 
 const clothingTypes = [
-    { name: 'Hoodies & Sweatshirts', value: 'hoodies&sweatshirts' },
-    { name: 'Pants', value: 'pants' },
-    { name: 'Shirts', value: 'shirts' },
-    { name: 'Tops&Tees', value: 'tops&tees' },
-    { name: 'Jackets&Coats', value: 'jackets&coats' },
-    { name: 'Shoes', value: 'shoes' },
-    { name: 'Accessories', value: 'accessories' },
+    { name: 'Originals', value: 'originals' },
+    { name: 'Thể thao', value: 'thethao' },
+    { name: 'Bóng đá', value: 'bongda' },
+    { name: 'Bóng rổ', value: 'bongro' },
+    { name: 'Quần vợt', value: 'quanvot' },
+    { name: 'Chạy', value: 'chay' },
 ];
 
 const sizes = [41, 42, 43, 44, 45, 46, 47, 48];
