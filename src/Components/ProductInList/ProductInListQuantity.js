@@ -7,7 +7,7 @@ const ProductInListQuantity = ({ idpr, carts, setCart, item }) => {
     const [quantity, setQuantity] = useState(item.qty);
     const prevClick = (quantity, id) => {
         setQuantity(quantity === 1 ? 1 : quantity - 1);
-        setCart(carts.map((item) => (item.id === id ? { ...item, qty: parseInt(quantity) === 1 ? 1 : parseInt(quantity) === 1 - 1 } : item)))
+        setCart(carts.map((item) => (item.id === id ? { ...item, qty: parseInt(quantity) === 1 ? 1 : parseInt(quantity) - 1 } : item)))
 
 
         // setCart([...carts, carts.find((item) => (item.id === id ? (item.qty = quantity) : item))]);

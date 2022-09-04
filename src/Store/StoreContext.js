@@ -12,16 +12,7 @@ export const StoreContextProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
     const Delete = (id) => {
-        console.log('id:', id);
-        let carts = [];
-        cart.length &&
-            cart.map((item) => {
-                if (item.id !== id) {
-                    carts.push(item);
-                }
-            });
-        cart.length = 0;
-        setCart(carts);
+        setCart(cart.filter(item => item.id !== id));
     };
 
     return (
